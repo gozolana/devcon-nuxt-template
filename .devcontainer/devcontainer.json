@@ -1,25 +1,32 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "pnpm-nuxt",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
-	"workspaceFolder": "/workspace",
-	"workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"Vue.volar",
-				"GitHub.copilot-chat"
-			]
-		}
-	},
-	"remoteUser": "node",
-	"mounts": [
-		"source=global-pnpm-store,target=${containerWorkspaceFolder}/.pnpm-store,type=volume",
-		"source=${env:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
-	],
-	// "postCreateCommand": "sudo chown -R node:node ${containerWorkspaceFolder}/.pnpm-store && pnpm install"
-	"postCreateCommand": "sudo chown -R node:node ${containerWorkspaceFolder}/.pnpm-store"
+  "name": "pnpm-nuxt",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Markdown
+        "yzhang.markdown-all-in-one",
+        "shd101wyy.markdown-preview-enhanced",
+        // Nuxt / Vue
+        "dbaeumer.vscode-eslint",
+        "Vue.volar",
+        "bradlc.vscode-tailwindcss",
+        // AI
+        "GitHub.copilot-chat"
+      ]
+    }
+  },
+  "remoteUser": "node",
+  "mounts": [
+    "source=global-pnpm-store,target=${containerWorkspaceFolder}/.pnpm-store,type=volume",
+    "source=${env:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
+  ],
+  // "postCreateCommand": "sudo chown -R node:node ${containerWorkspaceFolder}/.pnpm-store && pnpm install"
+  "postCreateCommand": "sudo chown -R node:node ${containerWorkspaceFolder}/.pnpm-store"
 }
