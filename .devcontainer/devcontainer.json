@@ -3,7 +3,8 @@
 {
   "name": "pnpm-nuxt",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "../Dockerfile",
+    "target": "dev"
   },
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=${containerWorkspaceFolder},type=bind",
@@ -27,6 +28,5 @@
     "source=global-pnpm-store,target=${containerWorkspaceFolder}/.pnpm-store,type=volume",
     "source=${env:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached"
   ],
-  // "postCreateCommand": "sudo chown -R node:node ${containerWorkspaceFolder}/.pnpm-store && pnpm install"
-  "postCreateCommand": "sudo chown -R node:node ${containerWorkspaceFolder}/.pnpm-store"
+  "postCreateCommand": "sudo chown -R node:node ${containerWorkspaceFolder}/.pnpm-store && pnpm install"
 }
